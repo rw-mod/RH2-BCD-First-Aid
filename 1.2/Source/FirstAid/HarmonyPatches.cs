@@ -48,6 +48,7 @@ namespace FirstAid
 							Action action = delegate ()
 							{
 								var medicine = FindBestMedicine(pawn, target);
+								Log.Message("medicine: " + medicine);
 								Job job = new Job(CPDefOf.CP_FirstAid, target, medicine);
 								pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 							};
@@ -61,7 +62,7 @@ namespace FirstAid
 
 		public static Thing FindBestMedicine(Pawn healer, Pawn patient)
 		{
-			if (patient.playerSettings == null || (int)patient.playerSettings.medCare <= 1)
+			if (patient.playerSettings != null && patient.playerSettings.medCare <= MedicalCareCategory.NoMeds)
 			{
 				return null;
 			}
@@ -69,7 +70,8 @@ namespace FirstAid
 			{
 				return null;
 			}
-			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) && patient.playerSettings.medCare.AllowsMedicine(m.def) && healer.CanReserve(m, 10, 1)) ? true : false;
+			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) && (patient.playerSettings is null || patient.playerSettings.medCare.AllowsMedicine(m.def)) 
+			&& healer.CanReserve(m, 10, 1)) ? true : false;
 			Func<Thing, float> priorityGetter = (Thing t) => t.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
 			float radius = 10f;
 			Thing medicine = null;
