@@ -36,7 +36,7 @@ namespace FirstAid
 	{
 		public static void Postfix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
 		{
-			if (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+			if (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && !pawn.WorkTypeIsDisabled(WorkTypeDefOf.Doctor))
 			{
 				foreach (LocalTargetInfo localTargetInfo in GenUI.TargetsAt_NewTemp(clickPos, TargetingParameters.ForRescue(pawn), true, null))
 				{
@@ -48,7 +48,6 @@ namespace FirstAid
 							Action action = delegate ()
 							{
 								var medicine = FindBestMedicine(pawn, target);
-								Log.Message("medicine: " + medicine);
 								Job job = new Job(CPDefOf.CP_FirstAid, target, medicine);
 								pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 							};
