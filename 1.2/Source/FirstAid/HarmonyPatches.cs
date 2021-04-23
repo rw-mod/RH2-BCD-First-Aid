@@ -47,6 +47,10 @@ namespace FirstAid
 						{
 							Action action = delegate ()
 							{
+								if (pawn.Drafted)
+                                {
+									pawn.drafter.Drafted = false;
+                                }
 								var medicine = FindBestMedicine(pawn, target);
 								Job job = new Job(CPDefOf.CP_FirstAid, target, medicine);
 								pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
