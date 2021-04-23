@@ -18,7 +18,7 @@ namespace FirstAid
 
         private const int BaseTendDuration = 600;
 
-        private const float TendSpeedMultiplier = 0.75f;
+        private const float TendSpeedMultiplier = 0.25f;
 
         private const int TicksBetweenSelfTendMotes = 100;
         protected Thing MedicineUsed => job.targetB.Thing;
