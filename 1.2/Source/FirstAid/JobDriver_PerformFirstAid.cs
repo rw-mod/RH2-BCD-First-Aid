@@ -39,6 +39,7 @@ namespace FirstAid
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
+            pawn.jobs.debugLog = true;
             if (Deliveree != pawn && !pawn.Reserve(Deliveree, job, 1, -1, null, errorOnFailed))
             {
                 return false;
@@ -72,6 +73,7 @@ namespace FirstAid
                 }
                 return (pawn == Deliveree && pawn.Faction == Faction.OfPlayer && !pawn.playerSettings.selfTend) ? true : false;
             });
+            this.FailOnAggroMentalState(TargetIndex.A);
 
             AddEndCondition(delegate
             {
@@ -82,16 +84,30 @@ namespace FirstAid
                 var condition = (pawn.Faction != Faction.OfPlayer && Deliveree.health.HasHediffsNeedingTend()) ? JobCondition.Ongoing : JobCondition.Succeeded;
                 return condition;
             });
-            this.FailOnAggroMentalState(TargetIndex.A);
             Toil reserveMedicine = null;
-            Log.Message("usesMedicine: " + usesMedicine + " - "  + TargetB);
             if (usesMedicine)
             {
-                reserveMedicine = Toils_Tend.ReserveMedicine(TargetIndex.B, Deliveree).FailOnDespawnedNullOrForbidden(TargetIndex.B);
-                yield return reserveMedicine;
-                yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B);
-                yield return Toils_Tend.PickupMedicine(TargetIndex.B, Deliveree).FailOnDestroyedOrNull(TargetIndex.B);
-                yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveMedicine, TargetIndex.B, TargetIndex.None, takeFromValidStorage: true);
+                if (pawn.inventory.Contains(TargetB.Thing))
+                {
+                    yield return new Toil
+                    {
+                        initAction = delegate
+                        {
+                            int num = Medicine.GetMedicineCountToFullyHeal(Deliveree);
+                            pawn.inventory.innerContainer.TryTransferToContainer(TargetB.Thing, pawn.carryTracker.innerContainer, num);
+                            job.SetTarget(TargetIndex.B, pawn.carryTracker.CarriedThing);
+                        }
+                    };
+                }
+                else
+                {
+                    reserveMedicine = Toils_Tend.ReserveMedicine(TargetIndex.B, Deliveree).FailOnDespawnedNullOrForbidden(TargetIndex.B);
+                    yield return reserveMedicine;
+                    yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B);
+                    yield return Toils_Tend.PickupMedicine(TargetIndex.B, Deliveree).FailOnDestroyedOrNull(TargetIndex.B);
+                    yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveMedicine, TargetIndex.B, TargetIndex.None, takeFromValidStorage: true);
+                }
+
             }
             PathEndMode interactionCell = (Deliveree == pawn) ? PathEndMode.OnCell : PathEndMode.InteractionCell;
             Toil gotoToil = Toils_Goto.GotoThing(TargetIndex.A, interactionCell);
@@ -131,6 +147,25 @@ namespace FirstAid
                 yield return toil2;
             }
             yield return Toils_Jump.Jump(gotoToil);
+        }
+    }
+
+    [HarmonyPatch(typeof(Pawn_JobTracker), "StartJob")]
+    public class StartJobPatch
+    {
+        private static void Postfix(Pawn_JobTracker __instance, Pawn ___pawn, Job newJob, JobTag? tag)
+        {
+            Log.Message(___pawn + " is starting " + newJob);
+        }
+    }
+    
+    
+    [HarmonyPatch(typeof(Pawn_JobTracker), "EndCurrentJob")]
+    public class EndCurrentJobPatch
+    {
+        private static void Prefix(Pawn_JobTracker __instance, Pawn ___pawn, JobCondition condition, ref bool startNewJob, bool canReturnToPool = true)
+        {
+            Log.Message(___pawn + " is ending " + ___pawn.CurJob);
         }
     }
 }
