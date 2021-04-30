@@ -149,23 +149,4 @@ namespace FirstAid
             yield return Toils_Jump.Jump(gotoToil);
         }
     }
-
-    [HarmonyPatch(typeof(Pawn_JobTracker), "StartJob")]
-    public class StartJobPatch
-    {
-        private static void Postfix(Pawn_JobTracker __instance, Pawn ___pawn, Job newJob, JobTag? tag)
-        {
-            Log.Message(___pawn + " is starting " + newJob);
-        }
-    }
-    
-    
-    [HarmonyPatch(typeof(Pawn_JobTracker), "EndCurrentJob")]
-    public class EndCurrentJobPatch
-    {
-        private static void Prefix(Pawn_JobTracker __instance, Pawn ___pawn, JobCondition condition, ref bool startNewJob, bool canReturnToPool = true)
-        {
-            Log.Message(___pawn + " is ending " + ___pawn.CurJob);
-        }
-    }
 }

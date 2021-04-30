@@ -53,8 +53,6 @@ namespace FirstAid
                                 }
 								var medicine = FindBestMedicine(pawn, target);
 								Job job = new Job(CPDefOf.CP_FirstAid, target, medicine);
-								Log.Message(pawn + " is taking job: " + job);
-								Log.Message(job.targetB.Thing + " - " + job.targetB.Thing.Position + " - " + job.targetB.Thing.Map);
 								pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 							};
 							string label = "RH.PerformFirstAid".Translate(target.Named("PAWN"));
@@ -76,7 +74,7 @@ namespace FirstAid
 				return null;
 			}
 			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) && (patient.playerSettings is null || patient.playerSettings.medCare.AllowsMedicine(m.def)) 
-				&& m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) > 0 && healer.CanReserveAndReach(m, PathEndMode.ClosestTouch, Danger.Deadly)) ? true : false;
+				&& m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) > 0.3f && healer.CanReserveAndReach(m, PathEndMode.ClosestTouch, Danger.Deadly)) ? true : false;
 			Func<Thing, float> priorityGetter = (Thing t) => t.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
 			float radius = 10f;
 			Thing medicine = null;
@@ -91,18 +89,15 @@ namespace FirstAid
 			}
 			if (candidates.Any() && candidates.TryRandomElementByWeight(priorityGetter, out medicine))
             {
-				Log.Message("1: " + medicine);
 				return medicine;
 			}
 			medicine = GenClosest.ClosestThing_Global_Reachable(healer.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
 				TraverseParms.For(healer), radius, validator, priorityGetter);
-			Log.Message("2: " + medicine);
 
 			if (medicine is null)
             {
 				medicine = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
 					TraverseParms.For(healer), radius, validator, priorityGetter);
-				Log.Message("3: " + medicine);
 			}
 			return medicine;
 		}
