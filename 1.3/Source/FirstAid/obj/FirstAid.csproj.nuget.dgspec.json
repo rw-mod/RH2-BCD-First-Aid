@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj": {}
+    "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj": {}
   },
   "projects": {
-    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj": {
+    "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
+        "projectUniqueName": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
         "projectName": "FirstAid",
-        "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
+        "projectPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
         "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
-        "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\obj\\",
+        "outputPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -36,11 +36,11 @@
           "dependencies": {
             "Krafs.Rimworld.Ref": {
               "target": "Package",
-              "version": "[1.3.3059-beta, )"
+              "version": "[1.3.3102, )"
             },
             "Lib.Harmony": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[2.1.1, )"
             }
           }
         }

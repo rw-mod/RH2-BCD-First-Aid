@@ -41,7 +41,7 @@ namespace FirstAid
 				foreach (LocalTargetInfo localTargetInfo in GenUI.TargetsAt(clickPos, TargetingParameters.ForRescue(pawn), true, null))
 				{
 					Pawn target = (Pawn)localTargetInfo.Thing;
-					if (target != null && (target.health?.HasHediffsNeedingTend(false) ?? false))
+					if (target != null && (target.health?.HasHediffsNeedingTend(false) ?? false) && target.RaceProps.IsFlesh)
 					{
 						if (pawn.CanReserveAndReach(target, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, true))
 						{
@@ -73,7 +73,8 @@ namespace FirstAid
 			{
 				return null;
 			}
-			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) && (patient.playerSettings is null || patient.playerSettings.medCare.AllowsMedicine(m.def)) 
+			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) 
+			&&  (patient.playerSettings is null && MedicalCareCategory.HerbalOrWorse.AllowsMedicine(m.def) || patient.playerSettings.medCare.AllowsMedicine(m.def))
 				&& m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) > 0.3f && healer.CanReserveAndReach(m, PathEndMode.ClosestTouch, Danger.Deadly)) ? true : false;
 			Func<Thing, float> priorityGetter = (Thing t) => t.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
 			float radius = 10f;
@@ -87,7 +88,7 @@ namespace FirstAid
 					candidates.Add(item);
 				}
 			}
-			if (candidates.Any() && candidates.TryRandomElementByWeight(priorityGetter, out medicine))
+			if (candidates.TryRandomElementByWeight(priorityGetter, out medicine))
             {
 				return medicine;
 			}
@@ -99,6 +100,7 @@ namespace FirstAid
 				medicine = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
 					TraverseParms.For(healer), radius, validator, priorityGetter);
 			}
+			Log.Message("Medicine: " + medicine);
 			return medicine;
 		}
 	}
