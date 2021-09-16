@@ -39,7 +39,6 @@ namespace FirstAid
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            pawn.jobs.debugLog = true;
             if (Patient != pawn && !pawn.Reserve(Patient, job, 1, -1, null, errorOnFailed))
             {
                 return false;
