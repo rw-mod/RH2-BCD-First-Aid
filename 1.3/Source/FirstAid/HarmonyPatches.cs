@@ -34,14 +34,26 @@ namespace FirstAid
 	[HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
 	public static class FloatMenuMakerCarryAdder
 	{
+		public static TargetingParameters ForRescue(Pawn p)
+		{
+			return new TargetingParameters
+			{
+				canTargetPawns = true,
+				canTargetBuildings = false,
+				mapObjectTargetsMustBeAutoAttackable = false,
+				validator = (TargetInfo x) => p != x.Thing && x.Thing is Pawn patient && patient.health.HasHediffsNeedingTend(false)
+					&& patient.GetPosture() != PawnPosture.Standing
+			};
+		}
 		public static void Postfix(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
 		{
 			if (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && !pawn.WorkTypeIsDisabled(WorkTypeDefOf.Doctor))
 			{
-				foreach (LocalTargetInfo localTargetInfo in GenUI.TargetsAt(clickPos, TargetingParameters.ForRescue(pawn), true, null))
+				foreach (LocalTargetInfo localTargetInfo in GenUI.TargetsAt(clickPos, ForRescue(pawn), true, null))
 				{
 					Pawn target = (Pawn)localTargetInfo.Thing;
-					if (target != null && (target.health?.HasHediffsNeedingTend(false) ?? false) && target.RaceProps.IsFlesh)
+					Log.Message("Target: " + target);
+					if (target != null && target.RaceProps.IsFlesh)
 					{
 						if (pawn.CanReserveAndReach(target, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, true))
 						{

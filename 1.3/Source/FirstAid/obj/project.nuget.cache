@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FwadIt0jyQxm9+The72m3vh3M8n509JRjxgWaT0szR0YkEraUH6LDM8T7IoZ96K15wgk61Fc6Cw6EqQaa/WfLQ==",
+  "dgSpecHash": "oDdjXXxnvvKJZ6wPfnqWO3/+FPxQtFKmoL0Sy2EhfhMs/aJ+fPtz0/TE8OMYAZp6nCfDoOngdXkJ8PDxYvNOZw==",
   "success": true,
-  "projectFilePath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.3\\Source\\FirstAid\\FirstAid.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3102\\krafs.rimworld.ref.1.3.3102.nupkg.sha512",
-    "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.1.1\\lib.harmony.2.1.1.nupkg.sha512"
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3326\\krafs.rimworld.ref.1.3.3326.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.2.1\\lib.harmony.2.2.1.nupkg.sha512"
   ],
   "logs": []
 }
