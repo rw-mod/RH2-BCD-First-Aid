@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZSfVNHm2VHAgqnhN5ffLxCkT97ZvlVDQrAmUXHbyV/biLsP1j8fQqnCcvKWqfQ1UYlRDoNgi6VxvKxlkDKaYJQ==",
+  "success": true,
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.4\\Source\\FirstAid\\FirstAid.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.4.3514-beta\\krafs.rimworld.ref.1.4.3514-beta.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}
