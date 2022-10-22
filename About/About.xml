@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-<name>[RH2] BCDs: First Aid</name>
-<author>Chicken Plucker</author>
-	<packageId>RH2.BCDs.First.Aid</packageId>
+<name>[RH2] BCD: First Aid</name>
+<author>Chicken Plucker, Taranchuk</author>
+	<packageId>RH2.BCD.First.Aid</packageId>
 	<modDependencies>
         <li>
             <packageId>brrainz.harmony</packageId>
@@ -11,16 +11,34 @@
             <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
         </li>
     </modDependencies>
-	<supportedVersions>
-	<li>1.2</li>
-	<li>1.3</li>
-	</supportedVersions>
-<description>"BCDs" also known as the Battlefield Casualty Drills are a series of emergency medical procedures for the basic soldier.
+	<supportedVersions><li>1.3</li><li>1.2</li></supportedVersions>
+<description>Save precious time during the golden hour of survival with this first aid mod!
 
-First Aid are a series of drills executed with a sense of urgency.
+First aid allows your pawns to tend to downed casualties on the spot. If medical resources or a hospital bed is available nearby, the medic will utilize these before hastily performing first aid.
 
-This mod allows players to tend to downed pawns on the spot in quicker time than normal tending at the expense of quality in order to prevent further blood loss and to get friendlies back in the fight and perform CASEVAC as soon as possible.
+The following mod adds:
+- New right click option on downed pawns to "Perform first aid"
+- First aid tends to downed pawns without a bed
+- First aid will allow the medic to grab the nearest medicine resource, otherwise they will tend to the casualty with no medicine
+- Can be used on enemy pawns and friendlies
+- First aid tending speed is faster than normal tending, however the quality of tending is reduced
+
+What is BCD?
+Battlefield Casualty Drills, medical procedures in the event of a casualty in combat.
+
+What is First Aid?
+Medical treatment given to a casualty or injured person until further medical help is available
+
+What's the difference between this mod, the 1.3 tending feature and the "Stabilize Here" mod?
+- First Aid tend speed is 200% faster (scaling is based on pawn's medical ability)
+- First Aid tend quality is -25% worse (scaling is based on pawn's medical ability)
+- Pawn searches for nearby medical items, or ones in their inventory (uses the highest quality of medicine, unless forbidden)
+- Presentation and art style
+
+Combat Extended Compatible?
+Unknown.
 
 Credits:
-Taranchuk - C#</description>
+Taranchuk - C#
+Linkolas - Author of "Stabilize Here"</description>
 </ModMetaData>
