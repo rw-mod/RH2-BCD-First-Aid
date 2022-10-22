@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+    <defName>CP_FirstAid</defName>
+    <driverClass>FirstAid.JobDriver_PerformFirstAid</driverClass>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>
