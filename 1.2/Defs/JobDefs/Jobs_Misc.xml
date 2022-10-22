@@ -4,7 +4,8 @@
   <JobDef>
     <defName>CP_FirstAid</defName>
     <driverClass>FirstAid.JobDriver_PerformFirstAid</driverClass>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    <reportString>performing first aid.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
 </Defs>
