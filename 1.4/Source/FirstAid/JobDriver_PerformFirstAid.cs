@@ -70,7 +70,8 @@ namespace FirstAid
                         return true;
                     }
                 }
-                return (pawn == Patient && pawn.Faction == Faction.OfPlayer && !pawn.playerSettings.selfTend) ? true : false;
+                return pawn == Patient && pawn.Faction == Faction.OfPlayer 
+                && (pawn.playerSettings is null || !pawn.playerSettings.selfTend);
             });
             this.FailOnAggroMentalState(TargetIndex.A);
 
