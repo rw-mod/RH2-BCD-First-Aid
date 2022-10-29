@@ -86,7 +86,7 @@ namespace FirstAid
 				return null;
 			}
 			Predicate<Thing> validator = (Thing m) => (!m.IsForbidden(healer) 
-			&&  (patient.playerSettings is null && MedicalCareCategory.HerbalOrWorse.AllowsMedicine(m.def) || patient.playerSettings.medCare.AllowsMedicine(m.def))
+			&&  (patient.playerSettings is null && MedicalCareCategory.HerbalOrWorse.AllowsMedicine(m.def) || (patient.playerSettings?.medCare.AllowsMedicine(m.def) ?? false))
 				&& m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) > 0.3f && healer.CanReserveAndReach(m, PathEndMode.ClosestTouch, Danger.Deadly)) ? true : false;
 			Func<Thing, float> priorityGetter = (Thing t) => t.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
 			float radius = 10f;
