@@ -52,7 +52,6 @@ namespace FirstAid
 				foreach (LocalTargetInfo localTargetInfo in GenUI.TargetsAt(clickPos, ForRescue(pawn), true, null))
 				{
 					Pawn target = (Pawn)localTargetInfo.Thing;
-					Log.Message("Target: " + target);
 					if (target != null && target.RaceProps.IsFlesh)
 					{
 						if (pawn.CanReserveAndReach(target, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, true))
@@ -112,7 +111,6 @@ namespace FirstAid
 				medicine = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
 					TraverseParms.For(healer), radius, validator, priorityGetter);
 			}
-			Log.Message("Medicine: " + medicine);
 			return medicine;
 		}
 	}
