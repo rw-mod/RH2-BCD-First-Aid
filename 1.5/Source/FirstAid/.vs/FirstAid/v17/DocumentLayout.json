@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{09E55C19-6175-4D6E-8AAC-AEAAB367878E}|FirstAid.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\-rh2-bcd---first-aid\\1.5\\source\\firstaid\\harmonypatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09E55C19-6175-4D6E-8AAC-AEAAB367878E}|FirstAid.csproj|solutionrelative:harmonypatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09E55C19-6175-4D6E-8AAC-AEAAB367878E}|FirstAid.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\jobdriver_performfirstaid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09E55C19-6175-4D6E-8AAC-AEAAB367878E}|FirstAid.csproj|solutionrelative:jobdriver_performfirstaid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HarmonyPatches.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\HarmonyPatches.cs",
+              "RelativeDocumentMoniker": "HarmonyPatches.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\HarmonyPatches.cs",
+              "RelativeToolTip": "HarmonyPatches.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAgwFQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T16:11:22.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JobDriver_PerformFirstAid.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\JobDriver_PerformFirstAid.cs",
+              "RelativeDocumentMoniker": "JobDriver_PerformFirstAid.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\-RH2-BCD---First-Aid\\1.5\\Source\\FirstAid\\JobDriver_PerformFirstAid.cs",
+              "RelativeToolTip": "JobDriver_PerformFirstAid.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAwHIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-30T16:11:22.303Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
