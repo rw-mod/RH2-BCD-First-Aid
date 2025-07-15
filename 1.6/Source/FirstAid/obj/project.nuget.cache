@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "IdcLoPVLkTc=",
+  "success": true,
+  "projectFilePath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\[RH2] BCD First Aid\\1.6\\Source\\FirstAid\\FirstAid.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4518\\krafs.rimworld.ref.1.6.4518.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\lib.harmony\\2.3.6\\lib.harmony.2.3.6.nupkg.sha512"
+  ],
+  "logs": []
+}
