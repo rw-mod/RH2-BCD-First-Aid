@@ -9,7 +9,7 @@ internal static class HarmonyInit
 {
 	static HarmonyInit()
 	{
-		Harmony harmony = new Harmony("CP.FirstAid");
+		Harmony harmony = new Harmony("rw.mod.BCDsFirstAid");
 		harmony.PatchAll();
 	}
 	
