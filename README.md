@@ -42,7 +42,7 @@ However, as of RimWorld 1.6, this functionality can now be added using the **nat
 
 ## 🔧 Compatibility
 
-- RimWorld 1.6+
+- RimWorld 1.6
 - Incompatible with the original mod (disable one or the other)
 - Compatible with most other mods unless they interfere with inventory or FloatMenu logic
 
