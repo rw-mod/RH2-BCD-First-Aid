@@ -1,5 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\-RH2-BCD---First-Aid\1.4\Assemblies\FirstAid.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\-RH2-BCD---First-Aid\1.4\Source\FirstAid\obj\Debug\FirstAid.csproj.AssemblyReference.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\-RH2-BCD---First-Aid\1.4\Source\FirstAid\obj\Debug\FirstAid.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\-RH2-BCD---First-Aid\1.4\Source\FirstAid\obj\Debug\FirstAid.csproj.CopyComplete
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\-RH2-BCD---First-Aid\1.4\Source\FirstAid\obj\Debug\FirstAid.dll
